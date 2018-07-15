@@ -29,7 +29,7 @@ Resources:
               httpd: []
               php: []
           files: 
-            "/var/www/html/index.php":
+            /var/www/html/index.php:
               content: !Sub |
                 <?php print "Hello Swapnil!"; ?>
           services: 
@@ -57,7 +57,7 @@ Resources:
             # Ensure AWS CFN bootstrap is latest
             yum install -y aws-cfn-bootstrap
             # Install the files and packages from the metadata
-            /opt/aws/bin/cfn-init -v --stack {AWS::StackName} --resources EC2Instance --region {AWS::Region}
+            /opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --resource EC2Instance --region ${AWS::Region}
 
   MySecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
